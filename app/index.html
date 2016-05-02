@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang='en' class='no-js'>
+
+<head>
+  <meta charset='utf-8'>
+  <meta name='description' content=''>
+  <!-- to ensure proper rendering and touch zooming, add the viewport meta tag to your <head>. -->
+  <meta name='viewport' content='width=device-width, initial-scale=1, minimal-ui'>
+  <title>MAJESTIC THAI</title>
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+  <!-- build:css styles/vendor.css -->
+  <!-- bower:css -->
+  <link rel='stylesheet' href='../bower_components/normalize-css/normalize.css' />
+  <link rel='stylesheet' type='text/css' href='../bower_components/bootstrap/dist/css/bootstrap.min.css'>
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- build:css styles/main.css -->
+  <link rel='stylesheet' href='styles/main.css'>
+  <!-- endbuild -->
+
+  <!-- build:js scripts/vendor/modernizr.js -->
+  <script src='../bower_components/modernizr/modernizr.js'></script>
+  <!-- endbuild -->
+</head>
+
+<body>
+
+  <div class='container-fluid app'>
+    <div class='row page'></div>
+    <div class='row nav'></div>
+  </div>
+
+
+  <!-- TEMPLATES ------------------------------------------------------------>
+
+  <script type='text/template' id='navigation-template'>
+    <a class='nav-item' href="/#">HOME</a>
+    <a class='nav-item'  href="/#/menu/appetizers">MENU</a>
+    <a class='nav-item'  href="/#/contact">CONTACT</a>
+    <a class='nav-item'  href="/#/admin/menu">ADMIN</a>
+  </script>
+
+  <script type='text/template' id='index-template'>
+    <div class='row title'>MAJESTIC THAI</div>
+  </script>
+
+  <script type='text/template' id='menu-template'>
+    <div class='col-md-12 menu-categories'>
+      <a href="/#/menu/appetizers" class="category">APPETIZERS</a>
+      <a href="/#/menu/entrees" class="category">ENTREES</a>
+      <a href="/#/menu/desserts" class="category">DESSERTS</a>
+    </div>
+    <div class='col-md-8 menu'></div>
+    <div class='col-md-4 order'></div>
+  </script>
+
+  <script type='text/template' id='menu-items-template'>
+    <table class='table table-hover table-responsive'>
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Item</th>
+          <th class='description'>Description</th>
+          <th>Price</th>
+          <th>Qty</th>
+          <th>Add</th>
+        </tr>
+      </thead>
+      <tbody class='menu-items'></tbody>
+    </table>
+  </script>
+
+  <script type='text/template' id='menu-item-template'>
+      <td>Image Goes Here</td>
+      <td><%= htmlEscape(item) %></td>
+      <td class='description'><%= htmlEscape(description) %></td>
+      <td><%= htmlEscape(price) %></td>
+      <td><input class='qty-input menu-item-input' type="number" min='1' max='12' value='1'/></td>
+      <td><button type='button' class='btn btn-success add'>+</button></td>
+  </script>
+
+  <script type='text/template' id='order-items-template'>
+    <table class='table table-hover table-responsive'>
+      <thead>
+        <tr>
+          <th>Qty</th>
+          <th>Item</th>
+          <th>Price</th>
+          <th>Remove</th>
+        </tr>
+      </thead>
+      <tbody class='order-items'></tbody>
+      <tfoot>
+        <td>SUM</td>
+        <td id='orderTotal'>$0</td>
+        <td><button type='button' class='btn btn-success submit-order'>ORDER</button></td>
+      </tfoot>
+    </table>
+  </script>
+
+  <script type='text/template' id='order-item-template'>
+      <td><input class='qty-input order-item-input' type="number" min='1' max='12' value='<%= htmlEscape(qty) %>'/></td>
+      <td><%= htmlEscape(item) %></td>
+      <td><%= htmlEscape(price)%></td>
+      <td><button type='button' class='btn btn-danger remove'>x</button></td>
+  </script>
+
+  <script type='text/template' id='admin-login-template'>
+
+  </script>
+
+  <script type='text/template' id='admin-orders-template'></script>
+
+  <script type='text/template' id='menu-item-add-template'>
+    <form class='col-md-offset-4 col-md-4 menu-item-add-form'>
+      <div class="form-group form-group-category">
+        <label>Category</label>
+        <select class="form-control" name='category' value='select'>
+          <option>APPETIZERS</option>
+          <option>ENTREES</option>
+          <option>DESSERTS</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Item</label>
+        <input type='text' class='form-control' name='item' value="" />
+      </div>
+      <div class="form-group">
+        <label>Description</label>
+        <textarea class='form-control' name='description' value=""></textarea>
+      </div>
+      <div class="form-group form-group-price">
+        <label>Price</label>
+        <input type='number' class='form-control price-input' name='price' min="0.00" value="" />
+      </div>
+      <hr>
+      <div class='button-group'>
+        <button type='button' class='btn btn-success add-new'>ADD MENU ITEM</button>
+        <button type='button' class='btn btn-edit clear'>CLEAR FORM</button>
+
+      </div>
+    </form>
+  </script>
+
+  <!-- deter unsafe input (& "" ' < >) -->
+  <script>
+    function htmlEscape(str){
+      return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/'/g, '&quot;')
+      .replace(/'/g, '&#39;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+    }
+  </script>
+
+  <!-- build:js scripts/vendor.js -->
+
+  <!-- bower:js -->
+  <!-- <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script>
+  <script src='http://documentcloud.github.com/underscore/underscore-min.js'></script>
+  <script src='http://documentcloud.github.com/backbone/backbone-min.js'></script> -->
+  <script src='../bower_components/jquery/dist/jquery.js'></script>
+  <script src='../bower_components/underscore/underscore.js'></script>
+  <!-- bootstraps js requires jquery -->
+  <script src='../bower_components/bootstrap/dist/js/bootstrap.min.js'></script>
+  <script src='../bower_components/backbone/backbone-min.js'></script>
+  <script src='../bower_components/react/react.min.js'></script>
+  <script src='../bower_components/react.backbone/react.backbone.js'></script>
+  <!-- bower install git@github.com:jeromegn/Backbone.localStorage -->
+  <script src='../bower_components/backbone.localStorage/backbone.localStorage-min.js'></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- build:js scripts/main.js -->
+  <script type='text/javascript' src='scripts/models/menuItem.js'></script>
+  <script type='text/javascript' src='scripts/models/orderItem.js'></script>
+
+  <script type='text/javascript' src='scripts/collections/menuItems.js'></script>
+  <script type='text/javascript' src='scripts/collections/orderItems.js'></script>
+
+  <script type='text/javascript' src='scripts/views/navigation.js'></script>
+  <script type='text/javascript' src='scripts/views/index.js'></script>
+  <script type='text/javascript' src='scripts/views/menu.js'></script>
+  <script type='text/javascript' src='scripts/views/order.js'></script>
+  <script type='text/javascript' src='scripts/views/admin.js'></script>
+
+  <script type='text/javascript' src='scripts/menu.js'></script>
+  <script type='text/javascript' src='scripts/main.js'></script>
+
+  <script type='text/javascript' src='scripts/router.js'></script>
+
+  <!-- endbuild -->
+</body>
+
+</html>
