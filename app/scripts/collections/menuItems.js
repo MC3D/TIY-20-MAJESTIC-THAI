@@ -12,7 +12,7 @@
 
   window.app.Collections.MenuItems = Backbone.Collection.extend({
     // save all of the menu items under the "menu-backbone" namespace
-    localStorage: new Backbone.LocalStorage('backbone-menu'),
+    localStorage: new Backbone.LocalStorage('menu-backbone'),
     model: window.app.Models.MenuItem,
   });
 

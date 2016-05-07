@@ -1,9 +1,11 @@
-/* globals Backbone, alert */
+/* globals Backbone, alert, _ */
 
 (function(){
   'use strict';
 
   var menu = window.menu;
+
+  window.admin = true;
 
   window.app = window.app || {
     Models: {},
@@ -20,18 +22,15 @@
     },
 
     initialize: function() {
+      var self = this;
       this.indexView = new window.app.Views.Index();
       this.loginView = new window.app.Views.Login();
       this.menuView = new window.app.Views.Menu();
-      this.menuItems = new window.app.Collections.MenuItems(menu);
+      this.menuItems = new window.app.Collections.MenuItems();
+      this.menuItems.fetch();
       this.menuItemsView = new window.app.Views.MenuItems({
         collection: this.menuItems
       });
-
-      // this.menuEditView = new window.app.Views.MenuEdit();
-      // this.menuItemsEditView = new window.app.Views.MenuItemsEdit({
-      //   collection: this.menuItems
-      // });
 
       this.menuItemAddView = new window.app.Views.MenuItemAdd({
         collection: this.menuItems
@@ -39,8 +38,12 @@
 
 
       window.temporaryOrder = new window.app.Collections.OrderItems();
-      window.admin = true;
       this.orderItemsView = new window.app.Views.OrderItems({collection: window.temporaryOrder});
+
+      // remove once app is hooked up to firebase
+      _.each(menu, function(item){
+        self.menuItems.add(item);
+      });
     },
 
     start: function() {

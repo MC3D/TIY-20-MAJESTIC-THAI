@@ -11,6 +11,7 @@
   };
 
   window.app.Models.MenuItem = Backbone.Model.extend({
+    localStorage: new Backbone.LocalStorage('menu-backbone'),
     defaults: function() {
       return {
         imgURL: 'Empty imgURL ...',
