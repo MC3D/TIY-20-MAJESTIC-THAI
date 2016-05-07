@@ -65,8 +65,8 @@
           <th class='description'>Description</th>
           <th>Price</th>
           <th class='toggle'>Qty</th>
-          <th class='add toggle'>Add</th>
-          <th class='remove toggle hidden'>Remove</th>
+          <th class='toggle'>Add</th>
+          <th class='toggle hidden'>Remove</th>
         </tr>
       </thead>
       <tbody class='menu-items'></tbody>
@@ -79,8 +79,8 @@
       <td class='description'><%= htmlEscape(description) %></td>
       <td><%= htmlEscape(price) %></td>
       <td class='toggle'><input class='qty-input menu-item-input' type="number" min='1' max='12' value='1'/></td>
-      <td class='add toggle'><button type='button' class='btn btn-success add'>+</button></td>
-      <td class='remove toggle hidden'><button type='button' class='btn btn-danger remove'>x</button></td>
+      <td class='toggle'><button type='button' class='btn btn-success add'>+</button></td>
+      <td class='toggle hidden'><button type='button' class='btn btn-danger remove'>x</button></td>
   </script>
 
   <script type='text/template' id='order-items-template'>

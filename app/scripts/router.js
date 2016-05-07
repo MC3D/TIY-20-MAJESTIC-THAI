@@ -5,7 +5,7 @@
 
   var menu = window.menu;
 
-  window.admin = true;
+  window.admin = false;
 
   window.app = window.app || {
     Models: {},
