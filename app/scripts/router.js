@@ -30,7 +30,7 @@
         collection: this.menuItems
       });
       window.temporaryOrder = new window.app.Collections.OrderItems();
-      this.orderItemsView = new window.app.Views.OrderItems();
+      this.orderItemsView = new window.app.Views.OrderItems({collection: window.temporaryOrder});
     },
 
     start: function() {

@@ -11,8 +11,8 @@
   };
 
   window.app.Collections.OrderItems = Backbone.Collection.extend({
-    // save all of the todo items under the "orders-backbone" namespace
-    // localStorage: new Backbone.LocalStorage('backbone-orders'),
+    // save all of the order items under the "orders-backbone" namespace
+    localStorage: new Backbone.LocalStorage('backbone-orders'),
     // reference to this collection's model
     model: window.app.Models.OrderItem
   });

@@ -13,6 +13,10 @@
   window.app.Views.OrderItems = Backbone.View.extend({
     template: _.template($('#order-items-template').html()),
 
+    initialize: function(){
+      this.listenTo(this.collection, 'reset', this.reset);
+    },
+
     render: function() {
       var self = this;
       $('.order').empty().append(this.template);
@@ -28,6 +32,10 @@
         model: model,
       });
       orderItemView.render();
+    },
+
+    reset: function(){
+      this.render();
     }
   });
 
@@ -37,11 +45,9 @@
 
     events: {
       'click .remove': 'destroy',
-      'click .order': 'submit',
       'keyup .order-item-input': 'updateQty',
       'blur .order-item-input': 'updateQty',
-      'click .order-item-input': 'updateQty',
-      'click .place-order': 'submitOrder'
+      'click .order-item-input': 'updateQty'
     },
 
     initialize: function(options) {
@@ -78,10 +84,6 @@
         $('#orderTotal').html('$' + total.toFixed(2));
     },
 
-    submitOrder: function(){
-
-    },
-
     destroy: function(event) {
       event.preventDefault();
       var cid = this.model.cid;
@@ -90,9 +92,6 @@
       });
       this.$el.remove();
       this.calculateTotal();
-    },
-
-    order: function() {
     }
   });
 })();

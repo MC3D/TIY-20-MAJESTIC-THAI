@@ -11,16 +11,29 @@
   };
 
   window.app.Views.Menu = Backbone.View.extend({
+    el: $('.page'),
     template: _.template($('#menu-template').html()),
 
+    events: {
+      'click .submit-order': 'submitOrder'
+    },
+
     render: function(){
-      $('.page').empty().append(this.template());
+      this.$el.empty().append(this.template());
       this.renderNavigationMenu();
     },
 
     renderNavigationMenu: function(){
       this.navigationView = new window.app.Views.Navigation();
       this.navigationView.render();
+    },
+
+    submitOrder: function(){
+      var order = window.temporaryOrder.models;
+      _.each(order, function(item){
+        item.save();
+      });
+      window.temporaryOrder.reset();  
     }
   });
 

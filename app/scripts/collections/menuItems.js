@@ -11,7 +11,7 @@
   };
 
   window.app.Collections.MenuItems = Backbone.Collection.extend({
-    // save all of the todo items under the "menu-backbone" namespace
+    // save all of the menu items under the "menu-backbone" namespace
     // localStorage: new Backbone.LocalStorage('backbone-menu'),
     model: window.app.Models.MenuItem,
   });

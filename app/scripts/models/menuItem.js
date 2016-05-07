@@ -13,16 +13,12 @@
   window.app.Models.MenuItem = Backbone.Model.extend({
     defaults: function() {
       return {
-        image: 'Empty image ...',
+        imgURL: 'Empty imgURL ...',
         item: 'Empty item ...',
         description: 'Empty description ...',
         price: 'Empty price ...',
         isActive: 'false'
       };
-    },
-
-    orderItem: function() {
-      console.log(this);
     }
   });
 })();
