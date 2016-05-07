@@ -3,7 +3,7 @@
 (function(){
   'use strict';
 
-  var menu = window.menu;
+  // var menu = window.menu;
 
   window.admin = false;
 
@@ -22,7 +22,7 @@
     },
 
     initialize: function() {
-      var self = this;
+      // var self = this;
       this.indexView = new window.app.Views.Index();
       this.loginView = new window.app.Views.Login();
       this.menuView = new window.app.Views.Menu();
@@ -41,9 +41,9 @@
       this.orderItemsView = new window.app.Views.OrderItems({collection: window.temporaryOrder});
 
       // remove once app is hooked up to firebase
-      _.each(menu, function(item){
-        self.menuItems.add(item);
-      });
+      // _.each(menu, function(item){
+      //   self.menuItems.create(item);
+      // });
     },
 
     start: function() {

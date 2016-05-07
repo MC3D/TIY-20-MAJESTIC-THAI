@@ -13,7 +13,6 @@
   window.app.Collections.OrderItems = Backbone.Collection.extend({
     // save all of the order items under the "orders-backbone" namespace
     localStorage: new Backbone.LocalStorage('orders-backbone'),
-    // reference to this collection's model
     model: window.app.Models.OrderItem
   });
 
