@@ -154,8 +154,9 @@
 
     addItem: function(event){
       event.preventDefault();
-      var item = $('.menu-item-add-form').serializeObject();
-      console.log(item);
+      var newMenuItem = $('.menu-item-add-form').serializeObject();
+      this.collection.create(newMenuItem);
+      $('.menu-item-add-form').trigger('reset');
     },
 
     clearForm: function(event){

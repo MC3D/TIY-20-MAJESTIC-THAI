@@ -33,7 +33,9 @@
       //   collection: this.menuItems
       // });
 
-      this.menuItemAddView = new window.app.Views.MenuItemAdd();
+      this.menuItemAddView = new window.app.Views.MenuItemAdd({
+        collection: this.menuItems
+      });
 
 
       window.temporaryOrder = new window.app.Collections.OrderItems();
