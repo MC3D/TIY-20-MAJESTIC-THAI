@@ -39,7 +39,7 @@
     <a class='nav-item' href="/#">HOME</a>
     <a class='nav-item'  href="/#/menu/appetizers">MENU</a>
     <a class='nav-item'  href="/#/contact">CONTACT</a>
-    <a class='nav-item'  href="/#/admin/menu">ADMIN</a>
+    <a class='nav-item'  href="/#/admin/menu/appetizers">ADMIN</a>
   </script>
 
   <script type='text/template' id='index-template'>
@@ -53,7 +53,7 @@
       <a href="/#/menu/desserts" class="category">DESSERTS</a>
     </div>
     <div class='col-md-8 menu'></div>
-    <div class='col-md-4 order'></div>
+    <div class='col-md-4 sidebar'></div>
   </script>
 
   <script type='text/template' id='menu-items-template'>
@@ -65,7 +65,8 @@
           <th class='description'>Description</th>
           <th>Price</th>
           <th>Qty</th>
-          <th>Add</th>
+          <th class='add toggle'>Add</th>
+          <th class='remove toggle hidden'>Remove</th>
         </tr>
       </thead>
       <tbody class='menu-items'></tbody>
@@ -78,7 +79,8 @@
       <td class='description'><%= htmlEscape(description) %></td>
       <td><%= htmlEscape(price) %></td>
       <td><input class='qty-input menu-item-input' type="number" min='1' max='12' value='1'/></td>
-      <td><button type='button' class='btn btn-success add'>+</button></td>
+      <td class='add toggle'><button type='button' class='btn btn-success add'>+</button></td>
+      <td class='remove toggle hidden'><button type='button' class='btn btn-danger remove'>x</button></td>
   </script>
 
   <script type='text/template' id='order-items-template'>
@@ -114,7 +116,8 @@
   <script type='text/template' id='admin-orders-template'></script>
 
   <script type='text/template' id='menu-item-add-template'>
-    <form class='col-md-offset-4 col-md-4 menu-item-add-form'>
+    <h3>Add New Menu Item</h3>
+    <form class='menu-item-add-form'>
       <div class="form-group form-group-category">
         <label>Category</label>
         <select class="form-control" name='category' value='select'>
@@ -139,7 +142,6 @@
       <div class='button-group'>
         <button type='button' class='btn btn-success add-new'>ADD MENU ITEM</button>
         <button type='button' class='btn btn-edit clear'>CLEAR FORM</button>
-
       </div>
     </form>
   </script>

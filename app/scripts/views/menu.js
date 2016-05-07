@@ -33,7 +33,7 @@
       _.each(order, function(item){
         item.save();
       });
-      window.temporaryOrder.reset();  
+      window.temporaryOrder.reset();
     }
   });
 
@@ -48,6 +48,11 @@
     render: function(query) {
       var category = query.toUpperCase();
       $('.menu').empty().append(this.template);
+
+      if(window.admin === true){
+        $('.toggle').toggleClass('hidden');
+      }
+
       var filteredMenu = this.collection.where({
         category: category
       });
@@ -62,8 +67,9 @@
       menuItemView.render();
       $('.menu-items').append(menuItemView.el);
       return this;
+    },
 
-    }
+
   });
 
   window.app.Views.MenuItem = Backbone.View.extend({
@@ -71,7 +77,8 @@
     template: _.template($('#menu-item-template').html()),
 
     events: {
-      'click .add': 'orderItem'
+      'click .add': 'orderItem',
+      'click .remove': 'destroy'
     },
 
     initialize: function(options) {
@@ -85,12 +92,15 @@
       var attributes = this.model.toJSON();
       var html = this.template(attributes);
       this.$el.append(html);
+      if(window.admin === true){
+        this.$('.toggle').toggleClass('hidden');
+      }
       return this;
     },
 
-    remove: function(event) {
+    destroy: function(event) {
       event.preventDefault();
-      this.$el.remove();
+      this.model.destroy();
     },
 
     orderItem: function(event) {
@@ -126,6 +136,31 @@
       }
       this.$('input').val('1');
       return this;
+    }
+  });
+
+  window.app.Views.MenuItemAdd = Backbone.View.extend({
+    el: $('.page'),
+    template: _.template($('#menu-item-add-template').html()),
+
+    events: {
+      'click .add-new': 'addItem',
+      'click .clear': 'clearForm'
+    },
+
+    render: function(){
+      $('.sidebar').empty().append(this.template());
+    },
+
+    addItem: function(event){
+      event.preventDefault();
+      var item = $('.menu-item-add-form').serializeObject();
+      console.log(item);
+    },
+
+    clearForm: function(event){
+      event.preventDefault();
+      $('.menu-item-add-form').trigger('reset');
     }
   });
 })();
