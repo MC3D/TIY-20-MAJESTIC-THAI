@@ -52,10 +52,12 @@
       if(window.admin === true){
         $('.toggle').toggleClass('hidden');
       }
-
+      // console.log(this.collection);
       var filteredMenu = this.collection.where({
         category: category
       });
+      // console.log('here');
+      // console.log(filteredMenu);
       filteredMenu.forEach(this.renderChild, this);
       return this;
     },

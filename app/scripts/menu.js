@@ -5,7 +5,8 @@ window.data = [{
     item: 'CHICKEN SATAY (4 pcs)',
     description: 'Chicken marinated in Thai spices, skewered and grilled to perfection, served with peanut sauce and small cucumber salad.',
     price: '6.95',
-    isActive: true
+    isActive: true,
+    category: 'APPERTIZERS'
   }, {
     imgURL: 'Empty imgURL ...',
     item: 'CRAB WONTONS (6 pcs)',
@@ -103,5 +104,3 @@ window.data.forEach(function(object){
   window.removeData(object);
   return object;
 });
-
-// console.log(window.menu);

@@ -10,10 +10,12 @@
     Collections: {}
   };
 
-  window.app.Collections.MenuItems = Backbone.Collection.extend({
+  window.app.Collections.MenuItems = Backbone.Firebase.Collection.extend({
     // save all of the menu items under the "menu-backbone" namespace
-    localStorage: new Backbone.LocalStorage('menu-backbone'),
+    // localStorage: new Backbone.LocalStorage('menu-backbone'),
     model: window.app.Models.MenuItem,
+    url: 'https://majestic-thai-e7bb0.firebaseio.com/menu'
+
   });
 
 })();

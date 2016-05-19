@@ -1,4 +1,4 @@
-/* globals Backbone, alert, _ */
+/* globals Backbone, alert */
 
 (function(){
   'use strict';
@@ -22,7 +22,6 @@
     },
 
     initialize: function() {
-      // var self = this;
       this.indexView = new window.app.Views.Index();
       this.loginView = new window.app.Views.Login();
       this.menuView = new window.app.Views.Menu();
@@ -39,11 +38,6 @@
 
       window.temporaryOrder = new window.app.Collections.OrderItems();
       this.orderItemsView = new window.app.Views.OrderItems({collection: window.temporaryOrder});
-
-      // remove once app is hooked up to firebase
-      // _.each(menu, function(item){
-      //   self.menuItems.create(item);
-      // });
     },
 
     start: function() {
