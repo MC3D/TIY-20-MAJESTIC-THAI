@@ -40,24 +40,26 @@
   window.app.Views.MenuItems = Backbone.View.extend({
     template: _.template($('#menu-items-template').html()),
 
-    initialize: function() {
-      this.listenTo(this.collection, 'add', this.renderChild);
+    initialize: function(options) {
+      this.options = options || {};
+      this.listenTo(this.collection, 'add', this.renderNew);
       this.listenTo(this.collection, 'reset', this.render);
+
     },
 
     render: function(query) {
-      var category = query.toUpperCase();
+      this.options.category = query;
+      this.options.category = query.toUpperCase();
       $('.menu').empty().append(this.template);
 
       if(window.admin === true){
         $('.toggle').toggleClass('hidden');
       }
-      // console.log(this.collection);
+
       var filteredMenu = this.collection.where({
-        category: category
+        category: this.options.category
       });
-      // console.log('here');
-      // console.log(filteredMenu);
+
       filteredMenu.forEach(this.renderChild, this);
       return this;
     },
@@ -71,6 +73,12 @@
       return this;
     },
 
+    renderNew: function(model){
+      var category = model.attributes.category;
+      if(category === this.options.category){
+        this.renderChild(model);
+      }
+    }
 
   });
 
