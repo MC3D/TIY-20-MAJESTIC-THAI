@@ -29,9 +29,13 @@
     },
 
     submitOrder: function(){
-      var order = window.temporaryOrder.models;
-      _.each(order, function(item){
-        item.save();
+      var total = $('#orderTotal').text();
+      var items = window.temporaryOrder.toJSON();
+      var order = new window.app.Collections.Orders();
+      order.create({
+        lastName: 'defaultLastName',
+        total: total,
+        items: items
       });
       window.temporaryOrder.reset();
     }
@@ -44,7 +48,6 @@
       this.options = options || {};
       this.listenTo(this.collection, 'add', this.renderNew);
       this.listenTo(this.collection, 'reset', this.render);
-
     },
 
     render: function(query) {
@@ -132,17 +135,17 @@
         qty = Number(window.temporaryOrder.models[index].attributes.qty) + Number(this.$('input').val());
         model = window.temporaryOrder.models[index];
         model.set('qty', qty);
+        model.save();
         $('.order-items').find('input').eq(index).val(qty);
 
       } else {
         qty = this.$('input').val();
-        model = this.model.clone();
-        model.set('qty', qty);
-        var orderItemView = new window.app.Views.OrderItem({
-          model: model,
+        model = new Backbone.Model({
+          item: this.model.get('item'),
+          price: this.model.get('price'),
+          qty: qty
         });
-        orderItemView.add();
-        $('.order-items').append(orderItemView.el);
+        window.temporaryOrder.create(model);
       }
       this.$('input').val('1');
       return this;

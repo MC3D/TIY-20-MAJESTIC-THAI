@@ -15,6 +15,7 @@
 
     initialize: function(){
       this.listenTo(this.collection, 'reset', this.reset);
+      this.listenTo(this.collection, 'add', this.renderChild);
     },
 
     render: function() {
@@ -60,11 +61,11 @@
       var html = this.template(attributes);
       this.$el.append(html);
       $('.order-items').append(this.el);
+      this.calculateTotal();
       return this;
     },
 
     add: function(){
-      window.temporaryOrder.add(this.model);
       var attributes = this.model.toJSON();
       var html = this.template(attributes);
       this.$el.append(html);
@@ -86,10 +87,7 @@
 
     destroy: function(event) {
       event.preventDefault();
-      var cid = this.model.cid;
-      window.temporaryOrder.remove({
-        cid: cid
-      });
+      this.model.destroy();
       this.$el.remove();
       this.calculateTotal();
     }

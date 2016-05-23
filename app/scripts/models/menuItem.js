@@ -14,11 +14,11 @@
     // localStorage: new Backbone.LocalStorage('menu-backbone'),
     defaults: function() {
       return {
-        imgURL: 'Empty imgURL ...',
-        item: 'Empty item ...',
-        description: 'Empty description ...',
-        price: 'Empty price ...',
-        isActive: 'false'
+        imgURL: '',
+        item: '',
+        description: '',
+        price: 0,
+        isActive: false
       };
     }
   });

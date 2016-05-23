@@ -10,12 +10,10 @@
     Collections: {}
   };
 
-  window.app.Collections.OrderItems = Backbone.Firebase.Collection.extend({
+  window.app.Collections.OrderItems = Backbone.Collection.extend({
     // save all of the order items under the "orders-backbone" namespace
-    // localStorage: new Backbone.LocalStorage('orders-backbone'),
     model: window.app.Models.OrderItem,
-    url: 'https://majestic-thai-e7bb0.firebaseio.com/orders'
-
+    localStorage: new Backbone.LocalStorage('orders-backbone')
   });
 
 })();

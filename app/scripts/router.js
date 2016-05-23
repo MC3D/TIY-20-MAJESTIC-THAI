@@ -35,14 +35,15 @@
         collection: this.menuItems
       });
 
-
       window.temporaryOrder = new window.app.Collections.OrderItems();
-      this.orderItemsView = new window.app.Views.OrderItems({collection: window.temporaryOrder});
+      window.temporaryOrder.fetch();
+      this.orderItemsView = new window.app.Views.OrderItems({
+        collection: window.temporaryOrder
+      });
     },
 
     start: function() {
       Backbone.history.start({
-        // pushState: true (getting error w/o #)
       });
 
     },

@@ -10,11 +10,8 @@
     Collections: {}
   };
 
-  window.app.Models.OrderItem = Backbone.Model.extend({
-    defaults: {
-      item: '',
-      qty: 0,
-      price: 0
-    }
+  window.app.Collections.Orders = Backbone.Firebase.Collection.extend({
+    url: 'https://majestic-thai-e7bb0.firebaseio.com/orders'
   });
+
 })();
