@@ -38,6 +38,7 @@
         items: items
       });
       window.temporaryOrder.reset();
+      $('.order-items').empty();
     }
   });
 
