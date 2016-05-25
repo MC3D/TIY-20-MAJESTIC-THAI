@@ -57,6 +57,11 @@
 
   .cart {
     float: right;
+    padding-bottom: 4px;
+  }
+
+  .cart > span:first-child {
+    margin-right: 5px;
   }
 }
 

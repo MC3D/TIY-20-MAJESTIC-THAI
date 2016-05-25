@@ -82,12 +82,15 @@
         var total = window.temporaryOrder.reduce(function(acum, i){
           return Number(i.attributes.price) * Number(i.attributes.qty) + acum;
         },0);
+        var count = window.temporaryOrder.models.length;
+        // console.log(count);
         if(total === 0) {
           $('#order-total').addClass('hidden');
         } else {
           $('#order-total').removeClass('hidden');
         }
         $('#orderTotal').html('$' + total.toFixed(2));
+        $('.cart-count').html(count);
     },
 
     destroy: function(event) {
