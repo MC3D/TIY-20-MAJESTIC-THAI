@@ -58,12 +58,9 @@
       <a href="/#/menu/appetizers" class="category appetizers">APPETIZERS</a>
       <a href="/#/menu/entrees" class="category entrees">ENTREES</a>
       <a href="/#/menu/desserts" class="category desserts">DESSERTS</a>
-      <a href="/#/cart" class='cart'><span>ORDER</span><span class='cart-count'>0</span></a>
+      <a href="/#/order" class='cart'><span>ORDER</span><span class='order-total'>0</span></a>
     </div>
-    <div class='col-md-10 col-md-offset-1 menu'>
-      <div class='col-md-8 menu-content'></div>
-      <div class='col-md-4 order-content'></div>
-    </div>
+    <div class='col-md-10 col-md-offset-1 menu'></div>
   </script>
 
   <script type='text/template' id='menu-items-template'>
@@ -93,6 +90,16 @@
       <td class='toggle center hidden'><button type='button' class='btn btn-danger remove'>x</button></td>
   </script>
 
+  <script type='text/template' id='order-template'>
+    <div class='col-md-10 col-md-offset-1 menu-categories'>
+      <a href="/#/menu/appetizers" class="category appetizers">APPETIZERS</a>
+      <a href="/#/menu/entrees" class="category entrees">ENTREES</a>
+      <a href="/#/menu/desserts" class="category desserts">DESSERTS</a>
+      <a href="/#/order" class='cart'><span>ORDER</span><span class='order-total'>0</span></a>
+    </div>
+    <div class='col-md-10 col-md-offset-1 order'></div>
+  </script>
+
   <script type='text/template' id='order-items-template'>
     <table class='table table-hover table-responsive'>
       <thead>
@@ -107,7 +114,7 @@
     </table>
     <div id='order-total' class='hidden'>
       <span>TOTAL</span>
-      <span id='orderTotal'>$0</span>
+      <span class='order-total'>$0</span>
       <button type='button' class='btn btn-success submit-order'>PLACE ORDER</button>
     </div>
   </script>

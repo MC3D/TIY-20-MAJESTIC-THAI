@@ -29,7 +29,7 @@
     },
 
     submitOrder: function(){
-      var total = $('#orderTotal').text();
+      var total = $('.order-total').text();
       var items = window.temporaryOrder.toJSON();
       var order = new window.app.Collections.Orders();
       order.create({
@@ -54,7 +54,7 @@
     render: function(query) {
       this.options.category = query;
       this.options.category = query.toUpperCase();
-      $('.menu-content').empty().append(this.template);
+      $('.menu').empty().append(this.template);
       $('.' + query).addClass('active');
 
       if(window.admin === true){
@@ -109,6 +109,11 @@
       this.$el.append(html);
       if(window.admin === true){
         this.$('.toggle').toggleClass('hidden');
+      } else {
+        var total = window.temporaryOrder.reduce(function(acum, i){
+          return Number(i.attributes.price) * Number(i.attributes.qty) + acum;
+        },0);
+        $('.order-total').html('$' + total.toFixed(2));
       }
       return this;
     },
@@ -138,7 +143,7 @@
         model = window.temporaryOrder.models[index];
         model.set('qty', qty);
         model.save();
-        $('.order-items').find('input').eq(index).val(qty);
+        // $('.order-items').find('input').eq(index).val(qty);
 
       } else {
         qty = this.$('input').val();
@@ -150,6 +155,13 @@
         window.temporaryOrder.create(model);
       }
       this.$('input').val('1');
+
+      var total = window.temporaryOrder.reduce(function(acum, i){
+        return Number(i.attributes.price) * Number(i.attributes.qty) + acum;
+      },0);
+      // $('#orderTotal').html('$' + total.toFixed(2));
+      $('.order-total').html('$' + total.toFixed(2));
+
       return this;
     }
   });

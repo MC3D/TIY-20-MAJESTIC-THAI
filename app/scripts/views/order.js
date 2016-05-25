@@ -10,6 +10,21 @@
     Collections: {}
   };
 
+  window.app.Views.Order = Backbone.View.extend({
+    el: $('.page'),
+    template: _.template($('#order-template').html()),
+
+    render: function(){
+      this.$el.empty().append(this.template());
+      this.renderNavigationMenu();
+    },
+
+    renderNavigationMenu: function(){
+      this.navigationView = new window.app.Views.Navigation();
+      this.navigationView.render();
+    },
+  });
+
   window.app.Views.OrderItems = Backbone.View.extend({
     template: _.template($('#order-items-template').html()),
 
@@ -20,7 +35,12 @@
 
     render: function() {
       var self = this;
-      $('.order-content').empty().append(this.template);
+      $('.order').empty().append(this.template);
+      var total = window.temporaryOrder.reduce(function(acum, i){
+        return Number(i.attributes.price) * Number(i.attributes.qty) + acum;
+      },0);
+      $('.order-total').html('$' + total.toFixed(2));
+      $('.cart').addClass('active');
       var order = window.temporaryOrder.models;
       _.each(order, function(item){
         self.renderChild(item);
@@ -79,18 +99,18 @@
     },
 
     calculateTotal: function(){
-        var total = window.temporaryOrder.reduce(function(acum, i){
-          return Number(i.attributes.price) * Number(i.attributes.qty) + acum;
-        },0);
-        var count = window.temporaryOrder.models.length;
+        // var total = window.temporaryOrder.reduce(function(acum, i){
+        //   return Number(i.attributes.price) * Number(i.attributes.qty) + acum;
+        // },0);
+        // var count = window.temporaryOrder.models.length;
         // console.log(count);
-        if(total === 0) {
-          $('#order-total').addClass('hidden');
-        } else {
-          $('#order-total').removeClass('hidden');
-        }
-        $('#orderTotal').html('$' + total.toFixed(2));
-        $('.cart-count').html(count);
+        // if(total === 0) {
+        //   $('#order-total').addClass('hidden');
+        // } else {
+        //   $('#order-total').removeClass('hidden');
+        // }
+        // $('#orderTotal').html('$' + total.toFixed(2));
+        // $('.cart-total').html('$' + total.toFixed(2));
     },
 
     destroy: function(event) {

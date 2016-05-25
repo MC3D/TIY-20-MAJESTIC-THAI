@@ -18,6 +18,7 @@
       '': 'index',
       'menu/:query': 'renderMenu',
       'admin/orders': 'orderEdit',
+      'order': 'renderOrder',
       '*path': 'notFound' // last so that it is the last one to match
     },
 
@@ -37,6 +38,8 @@
 
       window.temporaryOrder = new window.app.Collections.OrderItems();
       window.temporaryOrder.fetch();
+
+      this.orderView = new window.app.Views.Order();
       this.orderItemsView = new window.app.Views.OrderItems({
         collection: window.temporaryOrder
       });
@@ -55,11 +58,16 @@
     renderMenu: function(query) {
       this.menuView.render();
       this.menuItemsView.render(query);
-      if(window.admin === true){
-        this.menuItemAddView.render();
-      } else {
-        this.orderItemsView.render();
-      }
+      // if(window.admin === true){
+      //   this.menuItemAddView.render();
+      // } else {
+      //   this.orderItemsView.render();
+      // }
+    },
+
+    renderOrder: function(){
+      this.orderView.render();
+      this.orderItemsView.render();
     },
 
     notFound: function() {
