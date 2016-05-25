@@ -4,6 +4,12 @@
   padding-top: 15px;
   padding-bottom: 15px;
   opacity: .8;
+  border-radius: 25px;
+}
+
+.menu {
+  margin-bottom: 30px;
+  display: flex
 }
 
 .table {
@@ -15,6 +21,10 @@
 .menu-content {
   padding-left:0;
   border-right: 1px dotted;
+
+  &:after{
+    content: '';
+  }
 }
 
 .menu-categories {
@@ -52,6 +62,30 @@
   text-align: right;
   padding: 4px 1px;
   border-radius: 6px;
+}
+
+// .order-content {
+//   max-height: 500px;
+//   overflow: scroll;
+// }
+
+#order-total {
+  float: right;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  font-size: 20px;
+  border-top: 1px solid #b4b5b3;
+  padding-top: 10px;
+
+  span {
+    margin-right: 5px;
+  }
+
+  button {
+    margin-left: 5px;
+  }
 }
 
 .remove:parent {

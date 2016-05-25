@@ -82,6 +82,11 @@
         var total = window.temporaryOrder.reduce(function(acum, i){
           return Number(i.attributes.price) * Number(i.attributes.qty) + acum;
         },0);
+        if(total === 0) {
+          $('#order-total').addClass('hidden');
+        } else {
+          $('#order-total').removeClass('hidden');
+        }
         $('#orderTotal').html('$' + total.toFixed(2));
     },
 

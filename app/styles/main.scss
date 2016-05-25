@@ -21,6 +21,7 @@ body,
 
 .page
 {
+  overflow: scroll;
   color: #fff;
   height: 100%;
   background: linear-gradient( rgba(0,0,0,.5), rgba(0,0,0,.5) ), url('./../images/image-cover.jpeg') no-repeat center;
@@ -28,12 +29,29 @@ body,
      -moz-background-size: cover;
        -o-background-size: cover;
           background-size: cover;
+  margin-bottom: 60px;
 
 }
 
 .center {
   text-align: -webkit-center;
   text-align: center;
+}
+
+.right {
+  float: right;
+}
+
+.clearfix {
+  &:before{
+    content: '';
+    display: block;
+  }
+  &:after{
+    content:'';
+    display: block;
+    clear: both;
+  }
 }
 
 .btn-success {
@@ -51,7 +69,7 @@ body,
 
   &:hover {
     opacity: .8;
-    border: none;
+    border-color: transparent;
     background-color: #96bb46;
     color: #fff;
   }
@@ -71,7 +89,7 @@ body,
   &:hover {
     opacity: .8;
     background-color: #b14743;
-    border: none;
+    border-color: transparent;
     color: #fff;
   }
 }
