@@ -1,7 +1,65 @@
-.menu-items {
-  min-height: 400px;
+.menu, .sidebar {
+  background-color: #fff;
+  color: #84634c;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  opacity: .8;
 }
 
-.order-items {
-  min-height: 400px;
+.table {
+  background-color: #fff;
+
+  // border-radius: 15px;
+}
+
+.menu-content {
+  padding-left:0;
+  border-right: 1px dotted;
+}
+
+.menu-categories {
+  margin-top: 30px;
+  margin-bottom: 20px;
+  // margin-left: 2px;
+
+
+  a {
+    color: #fff;
+    margin-right: 10px;
+    text-decoration: none;
+
+    &:hover, &:active, &:focus, {
+      outline: none;
+      border-bottom: 1px solid #fff;
+      padding-bottom: 3px;
+    }
+  }
+
+  .active {
+    border-bottom: 1px solid #fff;
+    padding-bottom: 3px;
+  }
+
+  .cart {
+    float: right;
+  }
+}
+
+.qty-input {
+  color: #000;
+  text-align: -webkit-right;
+  text-align: right;
+}
+
+.remove:parent {
+  text-align: -webkit-center;
+  text-align: center;
+}
+
+.table>tbody>tr:hover{
+  background-color: initial;
+}
+
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+  padding-left: 0;
 }

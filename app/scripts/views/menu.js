@@ -54,7 +54,8 @@
     render: function(query) {
       this.options.category = query;
       this.options.category = query.toUpperCase();
-      $('.menu').empty().append(this.template);
+      $('.menu-content').empty().append(this.template);
+      $('.' + query).addClass('active');
 
       if(window.admin === true){
         $('.toggle').toggleClass('hidden');

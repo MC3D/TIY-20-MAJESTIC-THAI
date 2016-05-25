@@ -1,9 +1,6 @@
 (function() {
   'use strict';
 
-  // menu
-
-
 
   // form serializer
   $.fn.serializeObject = function() {

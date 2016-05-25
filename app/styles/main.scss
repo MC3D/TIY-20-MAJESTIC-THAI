@@ -8,45 +8,32 @@
 @import 'admin.scss';
 
 // Custom Styles
-body
-{
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
-    color: #333;
+html,
+body,
+.app,
+.page
+{
+    // font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Gill Sans', Helvetica, sans-serif;
+    height: 100%;
 }
 
-.hero-unit
+.page
 {
-    font-size: 18px;
-    font-weight: 200;
-    line-height: 30px;
+  color: #fff;
+  height: 100%;
+  background: linear-gradient( rgba(0,0,0,.5), rgba(0,0,0,.5) ), url('./../images/image-cover.jpeg') no-repeat center;
+  -webkit-background-size: cover;
+     -moz-background-size: cover;
+       -o-background-size: cover;
+          background-size: cover;
 
-    width: 600px;
-    margin: 50px auto 0 auto;
-    padding: 60px;
-
-    border-radius: 6px;
-    background-color: #eee;
-    h1
-    {
-        font-size: 60px;
-        line-height: 1;
-
-        letter-spacing: -1px;
-    }
 }
 
-.category
-{
-    cursor: pointer;
-}
-
-.qty-input
-{
-    width: em(50);
-    padding-left: em(10);
-
-    text-align: center;
+.center {
+  text-align: -webkit-center;
+  text-align: center;
 }
 
 .hidden

@@ -15,7 +15,7 @@
   <link rel='stylesheet' type='text/css' href='../bower_components/bootstrap/dist/css/bootstrap.min.css'>
   <!-- endbower -->
   <!-- endbuild -->
-
+  <link href='http://fonts.googleapis.com/css?family=Arizonia' rel='stylesheet' type='text/css'>
   <!-- build:css styles/main.css -->
   <link rel='stylesheet' href='styles/main.css'>
   <!-- endbuild -->
@@ -28,32 +28,42 @@
 <body>
 
   <div class='container-fluid app'>
-    <div class='row page'></div>
     <div class='row nav'></div>
+    <div class='row page'></div>
   </div>
 
 
   <!-- TEMPLATES ------------------------------------------------------------>
 
   <script type='text/template' id='navigation-template'>
-    <a class='nav-item' href="/#">HOME</a>
-    <a class='nav-item'  href="/#/menu/appetizers">MENU</a>
-    <a class='nav-item'  href="/#/contact">CONTACT</a>
-    <a class='nav-item'  href="/#/admin/menu/appetizers">ADMIN</a>
+    <!-- <div class='nav-group title'>Majestic Thai</div> -->
+    <div class="nav-group nav-links">
+      <a class='nav-link' href="/#">HOME</a>
+      <a class='nav-link'  href="/#/menu/appetizers">MENU</a>
+      <a class='nav-link'  href="/#/contact">CONTACT</a>
+      <a class='nav-link'  href="/#/admin/menu/appetizers">ADMIN</a>
+    </div>
   </script>
 
   <script type='text/template' id='index-template'>
-    <div class='row title'>MAJESTIC THAI</div>
+    <div class='index'>
+      <h3>Majestic Thai</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore atque provident dolore unde est eos velit, consequatur! Optio minima incidunt reprehenderit obcaecati, enim quasi est! Porro velit iure, expedita adipisci!</p>
+      <p>Odit nihil, doloremque atque dolore quam, vero hic quas debitis dolorum blanditiis ex in. Optio quaerat consequuntur quam eveniet dolores recusandae esse.</p>
+    </div>
   </script>
 
   <script type='text/template' id='menu-template'>
-    <div class='col-md-12 menu-categories'>
-      <a href="/#/menu/appetizers" class="category">APPETIZERS</a>
-      <a href="/#/menu/entrees" class="category">ENTREES</a>
-      <a href="/#/menu/desserts" class="category">DESSERTS</a>
+    <div class='col-md-10 col-md-offset-1 menu-categories'>
+      <a href="/#/menu/appetizers" class="category appetizers">APPETIZERS</a>
+      <a href="/#/menu/entrees" class="category entrees">ENTREES</a>
+      <a href="/#/menu/desserts" class="category desserts">DESSERTS</a>
+      <a href="/#/cart" class='cart'><span>CART</span><span>0</span></a>
     </div>
-    <div class='col-md-8 menu'></div>
-    <div class='col-md-4 sidebar'></div>
+    <div class='col-md-10 col-md-offset-1 menu'>
+      <div class='col-md-8 menu-content'></div>
+      <div class='col-md-4 order-content'></div>
+    </div>
   </script>
 
   <script type='text/template' id='menu-items-template'>
@@ -63,10 +73,10 @@
           <th>Image</th>
           <th>Item</th>
           <th class='description'>Description</th>
-          <th>Price</th>
-          <th class='toggle'>Qty</th>
-          <th class='toggle'>Add</th>
-          <th class='toggle hidden'>Remove</th>
+          <th class='center'>Price</th>
+          <th class='toggle center'>Qty</th>
+          <th class='toggle center'>Add</th>
+          <th class='toggle center hidden'>Remove</th>
         </tr>
       </thead>
       <tbody class='menu-items'></tbody>
@@ -77,20 +87,20 @@
       <td>Image Goes Here</td>
       <td><%= htmlEscape(item) %></td>
       <td class='description'><%= htmlEscape(description) %></td>
-      <td><%= htmlEscape(price) %></td>
-      <td class='toggle'><input class='qty-input menu-item-input' type="number" min='1' max='12' value='1'/></td>
-      <td class='toggle'><button type='button' class='btn btn-success add'>+</button></td>
-      <td class='toggle hidden'><button type='button' class='btn btn-danger remove'>x</button></td>
+      <td class='center'><%= htmlEscape(price) %></td>
+      <td class='toggle center'><input class='qty-input menu-item-input' type="number" min='1' max='12' value='1'/></td>
+      <td class='toggle center'><button type='button' class='btn btn-success add'>+</button></td>
+      <td class='toggle center hidden'><button type='button' class='btn btn-danger remove'>x</button></td>
   </script>
 
   <script type='text/template' id='order-items-template'>
     <table class='table table-hover table-responsive'>
       <thead>
         <tr>
-          <th>Qty</th>
+          <th class='center'>Qty</th>
           <th>Item</th>
-          <th>Price</th>
-          <th>Remove</th>
+          <th class='center'>Price</th>
+          <th class='center'>Remove</th>
         </tr>
       </thead>
       <tbody class='order-items'></tbody>
@@ -103,10 +113,10 @@
   </script>
 
   <script type='text/template' id='order-item-template'>
-      <td><input class='qty-input order-item-input' type="number" min='1' max='12' value='<%= htmlEscape(qty) %>'/></td>
+      <td class='center'><input class='qty-input order-item-input' type="number" min='1' max='12' value='<%= htmlEscape(qty) %>'/></td>
       <td><%= htmlEscape(item) %></td>
-      <td><%= htmlEscape(price)%></td>
-      <td><button type='button' class='btn btn-danger remove'>x</button></td>
+      <td class='center'><%= htmlEscape(price)%></td>
+      <td  class='center'><button type='button' class='btn btn-danger remove'>x</button></td>
   </script>
 
   <script type='text/template' id='admin-login-template'>

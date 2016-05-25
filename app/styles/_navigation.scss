@@ -1,24 +1,70 @@
-.nav {
-  text-align: center;
+.nav
+{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding: 0 20px;
+    width: 100%;
+    height: 60px;
+    margin: 0;
+    font-size: 0;
+    z-index: 10;
 
-  .nav-item {
-    color: #000;
-    display: inline-block;
-    font-weight: 500;
-    margin: 0 25px;
-    padding-bottom: 5px;
-    text-decoration: none;
+    background-color: #000;
 
-    &:hover {
-      border-bottom: solid 1px #000;
+    .nav-group
+    {
+        display: inline-block;
+        width: 100%;
+        vertical-align: middle;
     }
 
-    &:focus {
-      outline: none;
-    }
-  }
+    &::before
+    {
+        display: inline-block;
 
-  .active {
-      border-bottom: solid 1px #000;
-  }
+        height: 100%;
+
+        content: '';
+        vertical-align: middle;
+    }
+
+    // .title {
+    //   color: #fff;
+    //   font: 400 40px/1.3 'Arizonia', Helvetica, sans-serif;
+    // }
+
+    .nav-links {
+      font-size: initial;
+      text-align: -webkit-right;
+      text-align: right;
+    }
+
+    .nav-link
+    {
+        font-weight: 400;
+        display: inline-block;
+
+        margin: 0 15px;
+        padding-bottom: 2px;
+
+        text-decoration: none;
+
+        color: #fff;
+
+        &:hover
+        {
+            border-bottom: solid 1px #fff;
+        }
+
+        &:focus
+        {
+            outline: none;
+        }
+    }
+
+    .active
+    {
+        border-bottom: solid 1px #fff;
+    }
 }

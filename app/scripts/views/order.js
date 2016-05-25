@@ -20,7 +20,7 @@
 
     render: function() {
       var self = this;
-      $('.sidebar').empty().append(this.template);
+      $('.order-content').empty().append(this.template);
       var order = window.temporaryOrder.models;
       _.each(order, function(item){
         self.renderChild(item);
