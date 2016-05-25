@@ -39,6 +39,13 @@
       var total = window.temporaryOrder.reduce(function(acum, i){
         return Number(i.attributes.price) * Number(i.attributes.qty) + acum;
       },0);
+
+
+      if(total !== 0){
+        $('#order-total').removeClass('hidden');
+      } else {
+        $('#order-total').addClass('hidden');
+      }
       $('.order-total').html('$' + total.toFixed(2));
       $('.cart').addClass('active');
       var order = window.temporaryOrder.models;
@@ -99,18 +106,15 @@
     },
 
     calculateTotal: function(){
-        // var total = window.temporaryOrder.reduce(function(acum, i){
-        //   return Number(i.attributes.price) * Number(i.attributes.qty) + acum;
-        // },0);
-        // var count = window.temporaryOrder.models.length;
-        // console.log(count);
-        // if(total === 0) {
-        //   $('#order-total').addClass('hidden');
-        // } else {
-        //   $('#order-total').removeClass('hidden');
-        // }
-        // $('#orderTotal').html('$' + total.toFixed(2));
-        // $('.cart-total').html('$' + total.toFixed(2));
+      var total = window.temporaryOrder.reduce(function(acum, i){
+        return Number(i.attributes.price) * Number(i.attributes.qty) + acum;
+      },0);
+      $('.order-total').html('$' + total.toFixed(2));
+      if(total !== 0){
+        $('#order-total').removeClass('hidden');
+      } else {
+        $('#order-total').addClass('hidden');
+      }      
     },
 
     destroy: function(event) {
