@@ -17,6 +17,13 @@
         display: inline-block;
         width: 100%;
         vertical-align: middle;
+        text-align: -webkit-center;
+        text-align: center;
+
+        @media only screen and (min-width: 840px){
+          text-align: -webkit-right;
+          text-align: right;
+        }
     }
 
     &::before
@@ -36,8 +43,8 @@
 
     .nav-links {
       font-size: initial;
-      text-align: -webkit-right;
-      text-align: right;
+      // text-align: -webkit-right;
+      // text-align: right;
     }
 
     .nav-link
