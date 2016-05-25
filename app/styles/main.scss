@@ -36,6 +36,46 @@ body,
   text-align: center;
 }
 
+.btn-success {
+  border-color: #96bb46;
+  color: #96bb46;
+  background-color: transparent;
+
+  &:active, &:focus{
+    opacity: .8;
+    border-color: #96bb46;
+    color: #96bb46;
+    background-color: transparent;
+    outline: 0 !important;
+  }
+
+  &:hover {
+    opacity: .8;
+    border: none;
+    background-color: #96bb46;
+    color: #fff;
+  }
+}
+
+.btn-danger {
+  opacity: .8;
+  outline: none;
+  border-color: #b14743;
+  color: #b14743;
+  background-color: transparent;
+
+  &:active, &:focus{
+    outline: 0 !important;
+  }
+
+  &:hover {
+    opacity: .8;
+    background-color: #b14743;
+    border: none;
+    color: #fff;
+  }
+}
+
 .hidden
 {
     display: none;

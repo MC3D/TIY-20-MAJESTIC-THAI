@@ -20,6 +20,7 @@
 .menu-categories {
   margin-top: 30px;
   margin-bottom: 20px;
+  opacity: .8;
   // margin-left: 2px;
 
 
@@ -49,6 +50,8 @@
   color: #000;
   text-align: -webkit-right;
   text-align: right;
+  padding: 4px 1px;
+  border-radius: 6px;
 }
 
 .remove:parent {
