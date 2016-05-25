@@ -3,8 +3,6 @@
 (function(){
   'use strict';
 
-  // var menu = window.menu;
-
   window.admin = false;
 
   window.app = window.app || {
@@ -58,11 +56,6 @@
     renderMenu: function(query) {
       this.menuView.render();
       this.menuItemsView.render(query);
-      // if(window.admin === true){
-      //   this.menuItemAddView.render();
-      // } else {
-      //   this.orderItemsView.render();
-      // }
     },
 
     renderOrder: function(){
@@ -74,7 +67,6 @@
       alert('route not found');
       Backbone.history.navigate('',{trigger: true});
     }
-
   }))();
 
 })();

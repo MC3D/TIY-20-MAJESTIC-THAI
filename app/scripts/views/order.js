@@ -3,7 +3,6 @@
 (function() {
   'use strict';
 
-  // limit pollution of global namespace by creating single global object where everything is stored
   window.app = window.app || {
     Models: {},
     Views: {},
@@ -114,7 +113,7 @@
         $('#order-total').removeClass('hidden');
       } else {
         $('#order-total').addClass('hidden');
-      }      
+      }
     },
 
     destroy: function(event) {

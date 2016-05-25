@@ -16,82 +16,99 @@ body,
 {
     // font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-family: 'Gill Sans', Helvetica, sans-serif;
+
     height: 100%;
 }
 
 .page
 {
-  overflow: scroll;
-  color: #fff;
-  height: 100%;
-  background: linear-gradient( rgba(0,0,0,.5), rgba(0,0,0,.5) ), url('./../images/image-cover.jpeg') no-repeat center;
-  -webkit-background-size: cover;
-     -moz-background-size: cover;
-       -o-background-size: cover;
-          background-size: cover;
-  margin-bottom: 60px;
+    overflow: scroll;
 
+    height: 100%;
+    margin-bottom: 60px;
+
+    color: #fff;
+    background: linear-gradient( rgba(0,0,0,.5), rgba(0,0,0,.5) ), url('./../images/image-cover.jpeg') no-repeat center;
+    -webkit-background-size: cover;
+       -moz-background-size: cover;
+         -o-background-size: cover;
+            background-size: cover;
 }
 
-.center {
-  text-align: -webkit-center;
-  text-align: center;
+.center
+{
+    text-align: -webkit-center;
+    text-align:         center;
 }
 
-.right {
-  float: right;
+.right
+{
+    float: right;
 }
 
-.clearfix {
-  &:before{
-    content: '';
-    display: block;
-  }
-  &:after{
-    content:'';
-    display: block;
-    clear: both;
-  }
+.clearfix
+{
+    &:before
+    {
+        display: block;
+
+        content: '';
+    }
+    &:after
+    {
+        display: block;
+        clear: both;
+
+        content: '';
+    }
 }
 
-.btn-success {
-  border-color: #96bb46;
-  color: #96bb46;
-  background-color: transparent;
-
-  &:active, &:focus{
-    opacity: .8;
-    border-color: #96bb46;
+.btn-success
+{
     color: #96bb46;
+    border-color: #96bb46;
     background-color: transparent;
-    outline: 0 !important;
-  }
 
-  &:hover {
-    opacity: .8;
-    border-color: transparent;
-    background-color: #96bb46;
-    color: #fff;
-  }
+    &:active,
+    &:focus
+    {
+        opacity: .8;
+        color: #96bb46;
+        border-color: #96bb46;
+        outline: 0 !important;
+        background-color: transparent;
+    }
+
+    &:hover
+    {
+        opacity: .8;
+        color: #fff;
+        border-color: transparent;
+        background-color: #96bb46;
+    }
 }
 
-.btn-danger {
-  opacity: .8;
-  outline: none;
-  border-color: #b14743;
-  color: #b14743;
-  background-color: transparent;
-
-  &:active, &:focus{
-    outline: 0 !important;
-  }
-
-  &:hover {
+.btn-danger
+{
     opacity: .8;
-    background-color: #b14743;
-    border-color: transparent;
-    color: #fff;
-  }
+    color: #b14743;
+    border-color: #b14743;
+    outline: none;
+    background-color: transparent;
+
+    &:active,
+    &:focus
+    {
+        outline: 0 !important;
+    }
+
+    &:hover
+    {
+        opacity: .8;
+        color: #fff;
+        border-color: transparent;
+        background-color: #b14743;
+    }
 }
 
 .hidden

@@ -1,107 +1,129 @@
-// 1380 breakpoint
 
+.menu,
+.order
+{
+    padding-top: 15px;
+    padding-bottom: 15px;
 
-
-.menu, .order {
-  background-color: #fff;
-  color: #84634c;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  opacity: .8;
-  // border-radius: 25px;
+    opacity: .8;
+    color: #84634c;
+    background-color: #fff;
 }
 
-.menu {
-  margin-bottom: 30px;
-  display: flex
+.menu
+{
+    display: flex;
+
+    margin-bottom: 30px;
 }
 
-.table {
-  background-color: #fff;
-
-  // border-radius: 15px;
+.table
+{
+    background-color: #fff;
 }
 
-.menu-content {
-  // padding-left:0;
-  // border-right: 1px dotted;
+.menu-categories
+{
+    margin-top: 30px;
+    margin-bottom: 20px;
 
-  // &:after{
-  //   content: '';
-  // }
-}
-
-.menu-categories {
-  margin-top: 30px;
-  margin-bottom: 20px;
-  opacity: .8;
-  // margin-left: 2px;
+    opacity: .8;
 
 
-  a {
-    color: #fff;
-    margin-right: 10px;
-    text-decoration: none;
+    a
+    {
+        margin-right: 10px;
 
-    &:hover, &:active, &:focus, {
-      outline: none;
-      border-bottom: 1px solid #fff;
-      padding-bottom: 3px;
+        text-decoration: none;
+
+        color: #fff;
+
+        &:hover,
+        &:active,
+        &:focus,
+        {
+            padding-bottom: 3px;
+
+            border-bottom: 1px solid #fff;
+            outline: none;
+        }
     }
-  }
 
-  .active {
-    border-bottom: 1px solid #fff;
-    padding-bottom: 3px;
-  }
+    .active
+    {
+        padding-bottom: 3px;
 
-  .cart {
+        border-bottom: 1px solid #fff;
+    }
+
+    .cart
+    {
+        float: right;
+
+        margin-right: 0;
+        padding-bottom: 4px;
+    }
+
+    .cart > span:first-child
+    {
+        margin-right: 5px;
+    }
+}
+
+.qty-input
+{
+    padding: 4px 1px;
+
+    text-align: -webkit-right;
+    text-align:         right;
+
+    color: #000;
+    border-radius: 6px;
+}
+
+#order-total
+{
+    font-size: 20px;
+
+    display: -webkit-flex;
+    display:         flex;
     float: right;
-    padding-bottom: 4px;
-    margin-right: 0;
-  }
 
-  .cart > span:first-child {
-    margin-right: 5px;
-  }
+    padding-top: 10px;
+
+    border-top: 1px solid #b4b5b3;
+
+    -webkit-align-items: center;
+            align-items: center;
+
+    span
+    {
+        margin-right: 5px;
+    }
+
+    button
+    {
+        margin-left: 5px;
+    }
 }
 
-.qty-input {
-  color: #000;
-  text-align: -webkit-right;
-  text-align: right;
-  padding: 4px 1px;
-  border-radius: 6px;
+.remove:parent
+{
+    text-align: -webkit-center;
+    text-align:         center;
 }
 
-#order-total {
-  float: right;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-align-items: center;
-  align-items: center;
-  font-size: 20px;
-  border-top: 1px solid #b4b5b3;
-  padding-top: 10px;
-
-  span {
-    margin-right: 5px;
-  }
-
-  button {
-    margin-left: 5px;
-  }
+.table > tbody > tr:hover
+{
+    background-color: initial;
 }
 
-.remove:parent {
-  text-align: -webkit-center;
-  text-align: center;
-}
-
-.table>tbody>tr:hover{
-  background-color: initial;
-}
-
-.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
-  padding-left: 0;
+.table > tbody > tr>td,
+.table > tbody > tr>th,
+.table > tfoot > tr>td,
+.table > tfoot > tr>th,
+.table > thead > tr>td,
+.table > thead > tr > th
+{
+    padding-left: 0;
 }
