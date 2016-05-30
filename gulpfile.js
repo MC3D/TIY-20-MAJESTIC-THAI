@@ -31,12 +31,13 @@ gulp.task('html', ['styles'], function () {
 
 gulp.task('images', function () {
   return gulp.src('app/images/**/*')
-    .pipe($.imagemin({
+    .pipe($.cache($.imagemin({
       progressive: true,
       interlaced: true
-    }))
+    })))
     .pipe(gulp.dest('dist/images'));
 });
+
 
 gulp.task('extras', function () {
   return gulp.src(['app/*.*', '!app/*.html'], {dot: true})

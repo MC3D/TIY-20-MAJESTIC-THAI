@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang='en' class='no-js'>
+
+<head>
+  <meta charset='utf-8'>
+  <meta name='description' content=''>
+  <!-- to ensure proper rendering and touch zooming, add the viewport meta tag to your <head>. -->
+  <meta name='viewport' content='width=device-width, initial-scale=1, minimal-ui'>
+  <title>MAJESTIC THAI</title>
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+  <link rel="stylesheet" href="styles/vendor.css">
+  <link href='http://fonts.googleapis.com/css?family=Arizonia' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="styles/main.css">
+
+  <script src="scripts/vendor/modernizr.js"></script>
+</head>
+
+<body>
+
+  <div class='container-fluid app'>
+    <div class='row nav'></div>
+    <div class='row page'></div>
+  </div>
+
+
+  <!-- TEMPLATES ------------------------------------------------------------>
+
+  <script type='text/template' id='navigation-template'>
+    <div class="nav-group nav-links">
+      <a class='nav-link' href="/#">HOME</a>
+      <a class='nav-link'  href="/#/menu/appetizers">MENU</a>
+      <a class='nav-link'  href="/#/contact">CONTACT</a>
+      <a class='nav-link'  href="/#/admin/menu/appetizers">ADMIN</a>
+    </div>
+  </script>
+
+  <script type='text/template' id='index-template'>
+    <div class='index'>
+      <h3>Majestic Thai</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore atque provident dolore unde est eos velit, consequatur! Optio minima incidunt reprehenderit obcaecati, enim quasi est! Porro velit iure, expedita adipisci!</p>
+      <p>Odit nihil, doloremque atque dolore quam, vero hic quas debitis dolorum blanditiis ex in. Optio quaerat consequuntur quam eveniet dolores recusandae esse.</p>
+    </div>
+  </script>
+
+  <script type='text/template' id='menu-template'>
+    <div class='col-md-10 col-md-offset-1 menu-categories'>
+      <a href="/#/menu/appetizers" class="category appetizers">APPETIZERS</a>
+      <a href="/#/menu/entrees" class="category entrees">ENTREES</a>
+      <a href="/#/menu/desserts" class="category desserts">DESSERTS</a>
+      <a href="/#/order" class='cart'><span>ORDER</span><span class='order-total'>0</span></a>
+    </div>
+    <div class='col-md-10 col-md-offset-1 menu'></div>
+  </script>
+
+  <script type='text/template' id='menu-items-template'>
+    <table class='table table-hover table-responsive'>
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Item</th>
+          <th class='description'>Description</th>
+          <th class='center'>Price</th>
+          <th class='toggle center'>Qty</th>
+          <th class='toggle center'>Add</th>
+          <th class='toggle center hidden'>Remove</th>
+        </tr>
+      </thead>
+      <tbody class='menu-items'></tbody>
+    </table>
+  </script>
+
+  <script type='text/template' id='menu-item-template'>
+      <td>Image Goes Here</td>
+      <td><%= htmlEscape(item) %></td>
+      <td class='description'><%= htmlEscape(description) %></td>
+      <td class='center'><%= htmlEscape(price) %></td>
+      <td class='toggle center'><input class='qty-input menu-item-input' type="number" min='1' max='12' value='1'/></td>
+      <td class='toggle center'><button type='button' class='btn btn-success add'>+</button></td>
+      <td class='toggle center hidden'><button type='button' class='btn btn-danger remove'>x</button></td>
+  </script>
+
+  <script type='text/template' id='order-template'>
+    <div class='col-md-10 col-md-offset-1 menu-categories'>
+      <a href="/#/menu/appetizers" class="category appetizers">APPETIZERS</a>
+      <a href="/#/menu/entrees" class="category entrees">ENTREES</a>
+      <a href="/#/menu/desserts" class="category desserts">DESSERTS</a>
+      <a href="/#/order" class='cart'><span>ORDER</span><span class='order-total'>0</span></a>
+    </div>
+    <div class='col-md-10 col-md-offset-1 order'></div>
+  </script>
+
+  <script type='text/template' id='order-items-template'>
+    <table class='table table-hover table-responsive'>
+      <thead>
+        <tr>
+          <th class='center'>Qty</th>
+          <th>Item</th>
+          <th class='center'>Price</th>
+          <th class='center'>Remove</th>
+        </tr>
+      </thead>
+      <tbody class='order-items'></tbody>
+    </table>
+    <div id='order-total' class='hidden'>
+      <span>TOTAL</span>
+      <span class='order-total'>$0</span>
+      <button type='button' class='btn btn-success submit-order'>PLACE ORDER</button>
+    </div>
+  </script>
+
+  <script type='text/template' id='order-item-template'>
+      <td class='center'><input class='qty-input order-item-input' type="number" min='1' max='12' value='<%= htmlEscape(qty) %>'/></td>
+      <td><%= htmlEscape(item) %></td>
+      <td class='center'><%= htmlEscape(price)%></td>
+      <td  class='center'><button type='button' class='btn btn-danger remove'>x</button></td>
+  </script>
+
+  <script type='text/template' id='admin-login-template'>
+
+  </script>
+
+  <script type='text/template' id='admin-orders-template'></script>
+
+  <script type='text/template' id='menu-item-add-template'>
+    <h3>Add New Menu Item</h3>
+    <form class='menu-item-add-form'>
+      <div class="form-group form-group-category">
+        <label>Category</label>
+        <select class="form-control" name='category' value='select'>
+          <option>APPETIZERS</option>
+          <option>ENTREES</option>
+          <option>DESSERTS</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Item</label>
+        <input type='text' class='form-control' name='item' value="" />
+      </div>
+      <div class="form-group">
+        <label>Description</label>
+        <textarea class='form-control' name='description' value=""></textarea>
+      </div>
+      <div class="form-group form-group-price">
+        <label>Price</label>
+        <input type='number' class='form-control price-input' name='price' min="0.00" value="" />
+      </div>
+      <hr>
+      <div class='button-group'>
+        <button type='button' class='btn btn-success add-new'>ADD MENU ITEM</button>
+        <button type='button' class='btn btn-edit clear'>CLEAR FORM</button>
+      </div>
+    </form>
+  </script>
+
+  <!-- deter unsafe input (& "" ' < >) -->
+  <script>
+    function htmlEscape(str){
+      return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/'/g, '&quot;')
+      .replace(/'/g, '&#39;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+    }
+  </script>
+
+  <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
+  <script src="https://cdn.firebase.com/libs/backbonefire/0.5.1/backbonefire.min.js"></script>
+  
+  <script src="scripts/vendor.js"></script>
+
+  <script src="scripts/main.js"></script>
+</body>
+
+</html>
