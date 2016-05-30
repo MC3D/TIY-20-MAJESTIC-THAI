@@ -8,8 +8,6 @@
     "bourbon": "~4.0.2",
     "neat": "~1.6.0",
     "normalize-css": "~3.0.1",
-    "react": "^0.14.8",
-    "react.backbone": "^0.8.0"
   },
   "resolutions": {
     "underscore": ">=1.7.0",
