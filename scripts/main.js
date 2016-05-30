@@ -529,11 +529,11 @@
 
   window.MenuApp = new(Backbone.Router.extend({
     routes: {
-      '': 'index',
-      'menu/:query': 'renderMenu',
-      'admin/orders': 'orderEdit',
-      'order': 'renderOrder',
-      '*path': 'notFound' // last so that it is the last one to match
+      '//mc3d.github.io/TIY-20-MAJESTIC-THAI': 'index',
+      '//mc3d.github.io/TIY-20-MAJESTIC-THAI/menu/:query': 'renderMenu',
+      '//mc3d.github.io/TIY-20-MAJESTIC-THAI/admin/orders': 'orderEdit',
+      '//mc3d.github.io/TIY-20-MAJESTIC-THAI/order': 'renderOrder',
+      '//mc3d.github.io/TIY-20-MAJESTIC-THAI/*path': 'notFound' // last so that it is the last one to match
     },
 
     initialize: function() {
