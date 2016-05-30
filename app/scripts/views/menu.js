@@ -36,6 +36,7 @@
         total: total,
         items: items
       });
+      localStorage.removeItem('orders-backbone');
       window.temporaryOrder.reset();
       $('.order-items').empty();
     }
