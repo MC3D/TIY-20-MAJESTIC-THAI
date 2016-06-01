@@ -145,21 +145,16 @@
 {
     width: 34px;
     height: 34px;
-    // padding: 4px 0;
 
     text-align: -webkit-center;
     text-align:         center;
 
     color: #000;
     border-radius: 4px;
+}
 
-    @media only screen and (min-width: 840px)
-    {
-        // padding: 4px 1px;
-
-        // text-align: -webkit-right;
-        // text-align:         right;
-    }
+.order-items-template {
+  overflow: hidden;
 }
 
 #order-total
