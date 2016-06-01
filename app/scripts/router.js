@@ -64,7 +64,8 @@
     },
 
     notFound: function() {
-      alert('route not found');
+      alert('How do you comfort a JavaScript bug?');
+      alert('You console it! :-)');
       Backbone.history.navigate('',{trigger: true});
     }
   }))();

@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="styles/vendor.css">
 
   <link href='//fonts.googleapis.com/css?family=Arizonia' rel='stylesheet' type='text/css'>
+  <link href='//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="styles/main.css">
 
@@ -32,16 +33,14 @@
     <div class="nav-group nav-links">
       <a class='nav-link' href="#">HOME</a>
       <a class='nav-link'  href="#/menu/appetizers">MENU</a>
-      <a class='nav-link'  href="#/contact">CONTACT</a>
-      <a class='nav-link'  href="#/admin/menu/appetizers">ADMIN</a>
+      <a class='nav-link'  href="#">CONTACT</a>
+      <a class='nav-link'  href="#">ADMIN</a>
     </div>
   </script>
 
   <script type='text/template' id='index-template'>
     <div class='index'>
       <h3>Majestic Thai</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore atque provident dolore unde est eos velit, consequatur! Optio minima incidunt reprehenderit obcaecati, enim quasi est! Porro velit iure, expedita adipisci!</p>
-      <p>Odit nihil, doloremque atque dolore quam, vero hic quas debitis dolorum blanditiis ex in. Optio quaerat consequuntur quam eveniet dolores recusandae esse.</p>
     </div>
   </script>
 
@@ -50,13 +49,14 @@
       <a href="#/menu/appetizers" class="category appetizers">APPETIZERS</a>
       <a href="#/menu/entrees" class="category entrees">ENTREES</a>
       <a href="#/menu/desserts" class="category desserts">DESSERTS</a>
-      <a href="#/order" class='cart'><span>ORDER</span><span class='order-total'>0</span></a>
+      <a href="#/order" class='cart cart-icon'><span><i class="fa fa-shopping-cart" aria-hidden="true"></i></span></a>
+      <a href="#/order" class='cart cart-text'><span>ORDER</span><span class='order-total'>0</span></a>
     </div>
     <div class='col-md-10 col-md-offset-1 menu'></div>
   </script>
 
   <script type='text/template' id='menu-items-template'>
-    <table class='table table-hover table-responsive'>
+    <table class='table table-hover table-responsive menu-items-table'>
       <thead>
         <tr>
           <th>Image</th>
@@ -73,7 +73,7 @@
   </script>
 
   <script type='text/template' id='menu-item-template'>
-      <td>Image Goes Here</td>
+      <td class='image'><img src="./images/item-default.jpeg" alt=""></td>
       <td><%= htmlEscape(item) %></td>
       <td class='description'><%= htmlEscape(description) %></td>
       <td class='center'><%= htmlEscape(price) %></td>
@@ -87,7 +87,8 @@
       <a href="#/menu/appetizers" class="category appetizers">APPETIZERS</a>
       <a href="#/menu/entrees" class="category entrees">ENTREES</a>
       <a href="#/menu/desserts" class="category desserts">DESSERTS</a>
-      <a href="#/order" class='cart'><span>ORDER</span><span class='order-total'>0</span></a>
+      <a href="#/order" class='cart cart-icon'><span><i class="fa fa-shopping-cart" aria-hidden="true"></i></span></a>
+      <a href="#/order" class='cart cart-text'><span>ORDER</span><span class='order-total'>0</span></a>
     </div>
     <div class='col-md-10 col-md-offset-1 order'></div>
   </script>

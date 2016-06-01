@@ -29,9 +29,10 @@
 
     opacity: .8;
 
-
     a
     {
+        font-size: 1rem;
+
         margin-right: 10px;
 
         text-decoration: none;
@@ -70,20 +71,100 @@
     }
 }
 
+.cart-icon
+{
+    @media only screen and (min-width: 400px)
+    {
+        display: none;
+    }
+}
+
+.cart-text
+{
+    display: none;
+
+    @media only screen and (min-width: 400px)
+    {
+        display: initial;
+    }
+}
+
+.menu-items-table
+{
+    font-size: .75rem;
+
+    th:first-of-type
+    {
+        display: none;
+
+        @media only screen and (min-width: 840px)
+        {
+            display: table-cell;
+        }
+    }
+
+    th:nth-child(3)
+    {
+        display: none;
+        @media only screen and (min-width: 400px)
+        {
+            display: table-cell;
+        }
+    }
+}
+
+.menu-items
+{
+    .image
+    {
+        display: none;
+
+        @media only screen and (min-width: 840px)
+        {
+            display: table-cell;
+        }
+
+        img
+        {
+            width: 125px;
+        }
+    }
+
+    .description
+    {
+        display: none;
+
+        @media only screen and (min-width: 400px)
+        {
+            display: table-cell;
+        }
+    }
+}
+
 .qty-input
 {
-    padding: 4px 1px;
+    width: 34px;
+    height: 34px;
+    // padding: 4px 0;
 
-    text-align: -webkit-right;
-    text-align:         right;
+    text-align: -webkit-center;
+    text-align:         center;
 
     color: #000;
-    border-radius: 6px;
+    border-radius: 4px;
+
+    @media only screen and (min-width: 840px)
+    {
+        // padding: 4px 1px;
+
+        // text-align: -webkit-right;
+        // text-align:         right;
+    }
 }
 
 #order-total
 {
-    font-size: 20px;
+    font-size: 1.25rem;
 
     display: -webkit-flex;
     display:         flex;
@@ -118,12 +199,9 @@
     background-color: initial;
 }
 
-.table > tbody > tr>td,
-.table > tbody > tr>th,
-.table > tfoot > tr>td,
-.table > tfoot > tr>th,
-.table > thead > tr>td,
-.table > thead > tr > th
-{
-    padding-left: 0;
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+
+   opacity: 1;
+
 }
