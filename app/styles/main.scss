@@ -87,8 +87,6 @@ body,
         border-color: transparent;
         background-color: #96bb46;
     }
-
-
 }
 
 .btn-danger
@@ -117,4 +115,10 @@ body,
 .hidden
 {
     display: none;
+}
+
+input[type='text'],
+input[type='number'],
+textarea {
+  font-size: .75;
 }
