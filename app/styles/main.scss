@@ -30,6 +30,7 @@ body,
 
     color: #fff;
     background: linear-gradient( rgba(0,0,0,.5), rgba(0,0,0,.5) ), url('./../images/image-cover.jpeg') no-repeat center;
+    background-position-y: -100px;
     -webkit-background-size: cover;
        -moz-background-size: cover;
          -o-background-size: cover;
